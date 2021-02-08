@@ -6,6 +6,9 @@ const {createReadStream,createWriteStream,statSync}=require('fs');
 const {stat,readdir,rmdir,unlink,mkdir,rename}=require("fs").promises;
 const dirTree = require("directory-tree");
 const methods=Object.create(null);
+
+let port=process.env.PORT||8082;
+
 createServer((request,response)=>{
 
    console.log(urlPath(request.url));
@@ -24,7 +27,7 @@ createServer((request,response)=>{
             else response.end(body);
         }
     )
-}).listen(9084)
+}).listen(port)
 async function notAllowed(request){
     return {status:405,body:`Method ${request.method} not allowed.`}
 }
