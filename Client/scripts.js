@@ -1,6 +1,6 @@
 
 //YOUR DOMAIN OR LOCALHOST:PORT address here
-const Host_domain ='http://192.168.0.101:9084';
+const Host_domain ='https://filemanserver.herokuapp.com';
 
 
 
