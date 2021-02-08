@@ -1,9 +1,5 @@
-
 //YOUR DOMAIN OR LOCALHOST:PORT address here
 const Host_domain ='http://192.168.0.101:9084';
-
-
-
 let currentUrl = Host_domain+`/public`;
 
 function init() {

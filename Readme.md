@@ -1,0 +1,33 @@
+
+## *FileMan*
+
+
+**Filemanager with separate server and client.**
+
+ 1. cd Server
+ 2. npm install
+ 3. start using as file server API or optionally in the file manger UI
+
+You can simply run the [server.js](https://github.com/IamSAL/FileMan/blob/main/Server/server.js) file under and access local(or wherever you host it) files/dirs as JSON responses and consume using CURL,Postman etc. Supports GET, POST, DELETE, MKCOL(for creating directories), MOVE methods (for renaming and moving files or directories).
+
+![enter image description here](https://lh3.googleusercontent.com/58efq62uYkyAFDvkzv23aq3P9ZHm9ldPyeazBUI6dCCGFl5uRGY8ynWtLTqc_ajZ6YbHb7W4Ean5wjAAfPvPrBNr0Q_qek6cn4iNL_NptiKHEQ1PSXpAdO8DYRS5N7Jniln4ATnCdgYo91sYeEtX3ieT9K6_eEEQmB3e2dUO0e3BdHEzv2aJQhljPNVmVwznEzAM5vimQ1Vckb9pzE05a-swCVka2TRMKOgF_A9Lzke8D4Ykv-g8g4y32AqXI3oFkox1nQH_EVX7IIUKw-q4rQp6UeRw6mJ1Ty_VBqYQa_Rimte_KcFH6Ch85URXfjYRFwy8enn1VFuc_HmGoOroTzno5ittVfWTskpLCdkwZ0bWfRZ0TTAZOzACJHtRsNXkZHapoXrTbNC5PXY4toAyv5k65YAxY498RZNLet2G3HsHT8egUczr8QwbsdV1SpuUQVBYtAq5Ay71OYcKt0mtrjqXyc7WnDQGYsk9h3HIMArFzrYT7EIumYf19D2wT5sSNtEYYA6dOnA5YAd3azaFahXCoU49AjhLkd09FZjM83_LKxd4lHFH2Seq4axv5ldWPujbkGejxx02mTbauqGp-t7_J02OXE01V7lUL6qeF7dG2033I4sHhRtr_7Fl9bpve49FJdOFXnrYDFQw9VBbHWtZEz9mtEffJWBd01jHsXJKG_QnAedMaiSDcDs2hvw=w875-h663-no?authuser=0)
+
+
+# File browser Interface:
+
+
+
+It also has an UI which can be used to browse and manipulate the files from where file server is hosted. Supports most basic file operations.
+![Supports all basic file manager task](https://lh3.googleusercontent.com/v6ydI7aQnTraT4qn5fC8V3KxsTYY54q6pAsAjDyItqwsEDhEz76Q9pgniEj60DpPRVNG0IwVbJrD2WhcBzCRheAgJycjv13-WwnLcQljHxO9VyYG4wk2t8F_L8kCT0HeqgOu5FftmNERRUhtWh-1GVFNn4RaPQrzU6zeoUCb7r7RD-U3Fu6QY9ilLNUTvRWYNJSehCD9BNzng1jkQqyoQgWmgYA5iTnO8P7Fqc2mBLrrKYR2PEb9gWlno28_tnGG-w945bfcZY9N3peP2YwTt-iezk3YrNeSTmSz1-b-VKATNbLxguRgjXkAIA1IzY7nB4hJHuZPPAyqgoo8BQVftj9wSwV4Zf8995moNFloXWnYvvvrJ7ydghzcariRQnxJbruNqlKHi9qaRpCn1YIOLjb9Tl2RU1gC3Rs-jSvy3NKIJOzAyi3ieKmgCAWp1Fl8B0wxEDkAnFl8Vi0qqpWwc9n-Lp0V2HSOXMQ49zaduMTOT2pg5i4lHsuhh3uEpoknmlyr3OuuxurjxweziqwjdPMQgE39LKmzwB4v7XrIVMKPKOpdcuEk0M2wchiaEqAyPPM1k7VtMhTRosz002XHDh2NOIh8hZ9VorCPP9ER1xsIOUKD5Ej7UUfz8awe9V8yMlTyHRG59ZCjKU4l2BIB7czvlU2NOOHLnuZFlBbs862ETvbWQcoRiBmznlnDDSw=w1348-h655-no?authuser=0)
+
+
+`//Point the Host_domain in scripts.js to your file server adress to start using`**
+![enter image description here](https://lh3.googleusercontent.com/-CEa-4KKAUmlABbMd6qJrRlLNJzfHAXodRqT-KYLIhHRCOAqboZSsKfk6z3TCJW-KaKCu8Ju9HI74xGiyHeUQfCX342OkYiMdisgocC3iDLei1RvdjYWnc3MbHeKcfNABS7WoHcFo-CgR_ZQL9T6aINISz6gXf_RiAvnOEqwR99jz0-VxLM1v2PGA1VKTFWZnaB06W4B1zJaNtqUv2f-M_55TaMZOaN0Zj8EY-8-JipdzISeI0zftUNAp-RcSH3Fzw63Hb1y4f132_S851PLocLu7djy0bpFwFQr6cAAy_ubyp2TJggHadWir-zi575lsdVzwj9nWSZd317pCpJbF7_sWS3uf54ozr5t_64x_FXS7fIgN9bYAB-gL1sF_pd3LkJSHR9MwDUEtRgZ8Lt5f6yJ44ba3uRwmpyjEppkOkhP-CWdJjBpkOV4NeGA5Qv0wlLFoCE_2Sv7hwvBw5onxYIEXwX1SqhwH_N-IvV3bVKWKvWisl2l2rnBDuMS8dnU6hFnC8l9ZWsMAIjQmQPOXqyt0ZFkw1CrgOib_2Z1DCGQq82p_38EbWaoaekdWVrRzUxhRxUEHqqLMZc5bmVrq1FYhRXYXG1ZpYte4kbfvqDxVdjcVLPupHthROcBsAu8Yp3n5kDzNKTQNbiA3wkUTY5H605J23WIaaaqL-UedYosQeZU8UkxhwWiwnG9Bnc=w486-h188-no?authuser=0)
+
+*UI design credit:* [El Amrani Shaker](https://github.com/AmraniCh)
+
+## ToDo:
+
+ 1. Integrate Amazon S3 storage service instead of native OS file system (Something similar under abstraction of [S3FS](https://www.npmjs.com/package/s3fs) )
+ 2. Make the UI mobile responsive.
+ 
