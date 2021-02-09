@@ -176,7 +176,7 @@ renameFileBtn.addEventListener('click', async (e) => {
     let currentDir = currentUrl.replace(window.location.origin, '');
     let nameFor = document.querySelector(`#renameFileModal .name-for`).textContent;
     let newName = document.querySelector(`#renameFileModal #newFileName`).value || nameFor;
-    let toName = currentDir + '/' + newName
+    let toName = (currentDir + '/' + newName).replace(proxy,'').trim()
     let currentFile = currentDir + '/' + nameFor;
     console.log({
         currentFile,
@@ -186,7 +186,7 @@ renameFileBtn.addEventListener('click', async (e) => {
         toName
     });
     if (await updateAddFile(currentFile, JSON.stringify({
-        toName: currentDir + '/' + newName
+        toName
     }), 'MOVE')) {
         document.querySelector(`#renameFileModal .btn-icon-reset`).click();
         refreshtable()
@@ -199,10 +199,11 @@ renameFileBtn.addEventListener('click', async (e) => {
 moveFileBtn.addEventListener('click', async (e) => {
     let from = move_source.textContent.trim();
     let to = JSON.stringify({
-        toName: move_destination.textContent.trim().replaceAll('\\', '/')
+        toName: move_destination.textContent.trim().replaceAll('\\', '/').replace(proxy,'').trim()
+        // toName:`https://filemanserver.herokuapp.com/public/hu/test.txt`
     })
     console.log({
-        from,
+        from,to
     });
     updateAddFile(from, to, 'MOVE').then(() => {
         fetch(from, {
