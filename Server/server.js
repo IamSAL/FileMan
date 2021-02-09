@@ -21,8 +21,9 @@ createServer((request,response)=>{
     })
     .then(
         ({body,status=200,type="text/plain",link=''})=>{
-
-            response.writeHead(status,{"Content-Type":type,"file-link":link,"Access-Control-Allow-Origin":"*"});
+            //,"Access-Control-Allow-Origin":"*","Access-Control-Allow-Methods":"GET, POST, PATCH, PUT, DELETE, OPTIONS, MKCOL, MOVE","Access-Control-Allow-Headers":"X-Requested-With, Origin, Content-Type, X-Auth-Token",
+            //                 "X-Requested-With": "XMLHttpRequest"
+            response.writeHead(status,{"Content-Type":type,"file-link":link});
             if(body && body.pipe) body.pipe(response);
             else response.end(body);
         }

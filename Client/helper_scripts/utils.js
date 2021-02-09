@@ -1,5 +1,25 @@
 const cache=new Map();
-
+function parseTree(tree) {
+    let ul = document.createElement('ul')
+    ul.className = "sub-files"
+    tree.children.map(child => {
+        let type = child.type;
+        let li1 = document.createElement('li')
+        li1.appendChild(htmlToNode.parseFromString(type == "file" ? getFileIcon() : "<span></span>", "text/html").documentElement.children[1].children[0])
+        li1.className = type == "file" ? "file-item item side_file" : "dir-item item side_folder"
+        li1.setAttribute('data-link', Host_domain+pathToURL(child.path))
+        type == "directory" ? li1.setAttribute('data-open', false) : null;
+        if (child.children) {
+            ul.prepend(parseTree(child))
+        }
+        let span = document.createElement('span')
+        span.innerHTML = type == "directory" ? `<span class="item-icon">` + '📁' + `</span>` + child.name.substr(0, 17) : ' ' + child.name.substr(0, 17)
+        // span.textContent=child.name.substr(0,3)+`${child.type=="file"?child.extension:""}`;
+        li1.appendChild(span)
+        ul.prepend(li1);
+    })
+    return ul;
+}
 function succesAlert(msg, timeout = 7000) {
     editorMessages.classList.remove('error')
     editorMessages.classList.add('success')
@@ -7,6 +27,7 @@ function succesAlert(msg, timeout = 7000) {
     editorMessages.classList.add('show')
     hideAlert(timeout)
 }
+
 
 function failAlert(msg, timeout = 7000) {
     editorMessages.classList.remove('success')
@@ -26,9 +47,11 @@ function setAlert(current) {
     editorMessages = document.querySelector(`${current} .alert`);
 }
 async function refreshtable() {
-    file_table_loader.classList.add('show')
+    // file_table_loader.classList.add('show')
     cache.clear();
-    linkClicked(currentUrl)
+    init()
+    // linkClicked(currentUrl);
+
 }
 async function getFiles(url) {
     if(cache.has(url)){
@@ -42,7 +65,9 @@ async function getFiles(url) {
 }
 
 function pathToURL(path) {
-    return path.match(/\\public\\.*/g)[0]
+    // return path.match(/\\public\\.*/g)[0]
+    return encodeURI(path.match(/\/public\/.*/g)[0]);
+
 }
 //copyright:https://gist.github.com/davalapar/d0a5ba7cce4bc599f54800da22926da2
 function downloadFile(data, filename, mime) {

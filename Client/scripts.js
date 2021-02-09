@@ -1,36 +1,11 @@
 
-//YOUR DOMAIN OR LOCALHOST:PORT address here
-const Host_domain ='https://filemanserver.herokuapp.com';
-
-
-
 let currentUrl = Host_domain+`/public`;
 
 function init() {
-    function parseTree(tree) {
-        let ul = document.createElement('ul')
-        ul.className = "sub-files"
-        tree.children.map(child => {
-            let type = child.type;
-            let li1 = document.createElement('li')
-            li1.appendChild(htmlToNode.parseFromString(type == "file" ? getFileIcon() : "<span></span>", "text/html").documentElement.children[1].children[0])
-            li1.className = type == "file" ? "file-item item side_file" : "dir-item item side_folder"
-            li1.setAttribute('data-link', Host_domain+pathToURL(child.path))
-            type == "directory" ? li1.setAttribute('data-open', false) : null;
-            if (child.children) {
-                ul.prepend(parseTree(child))
-            }
-            let span = document.createElement('span')
-            span.innerHTML = type == "directory" ? `<span class="item-icon">` + '📁' + `</span>` + child.name.substr(0, 17) : ' ' + child.name.substr(0, 17)
-            // span.textContent=child.name.substr(0,3)+`${child.type=="file"?child.extension:""}`;
-            li1.appendChild(span)
-            ul.prepend(li1);
-        })
-        return ul;
-    }
+
     file_list_loader.classList.add('show')
     file_table_loader.classList.add('show')
-    getFiles(currentUrl)
+    getFiles(Host_domain+'/public')
         .then(res => {
             // setTableList(res,currentUrl);
             linkClicked(currentUrl)
